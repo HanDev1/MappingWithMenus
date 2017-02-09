@@ -1,37 +1,33 @@
 package com.example.a2hanj43.myapplication;
 
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.content.Intent;
 import android.widget.Button;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.EditText;
 
-public class MapChooseActivity extends Activity implements OnClickListener {
+public class SetLocationActivity extends Activity implements OnClickListener {
 
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.mca);
+        setContentView(R.layout.activity_set_location);
 
-        Button regular = (Button)findViewById(R.id.btnRegular);
-        regular.setOnClickListener(this);
-        Button cyclemap = (Button)findViewById(R.id.btnCyclemap);
-        cyclemap.setOnClickListener(this);
-
+        Button search = (Button)findViewById(R.id.searchLatLong);
+        search.setOnClickListener(this);
     }
 
     public void onClick(View v)
     {
         Intent intent = new Intent();
         Bundle bundle=new Bundle();
-        boolean cyclemap=false;
-        if (v.getId()==R.id.btnCyclemap)
-        {
-            cyclemap=true;
-        }
-        bundle.putBoolean("com.example.cyclemap",cyclemap);
+        double latitude = 0;
+        double longitude = 0;
+
+        bundle.putDouble("com.example.Latitude",latitude);
+        bundle.putDouble("com.example.Longitude",longitude);
         intent.putExtras(bundle);
         setResult(RESULT_OK,intent);
         finish();
