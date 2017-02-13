@@ -66,6 +66,13 @@ public class MainActivity extends Activity {
             // react to the menu item being selected...
             return true;
         }
+        else if(item.getItemId() == R.id.actlist)
+        {
+            Intent intent = new Intent(this,ExampleListActivity.class);
+            startActivityForResult(intent,2);
+            // react to the menu item being selected...
+            return true;
+        }
         return false;
     }
 
@@ -97,11 +104,12 @@ public class MainActivity extends Activity {
                     (this, PreferenceManager.getDefaultSharedPreferences(this));
 
             Bundle extras=intent.getExtras();
-            double latitude = extras.getDouble("com.example.latitude");
-            double longitude = extras.getDouble("com.example.longitude");
+            double latitude = extras.getDouble("com.example.Latitude");
+            double longitude = extras.getDouble("com.example.Longitude");
 
             mv.getController().setCenter(new GeoPoint(latitude,longitude));
         }
+
     }
 
 

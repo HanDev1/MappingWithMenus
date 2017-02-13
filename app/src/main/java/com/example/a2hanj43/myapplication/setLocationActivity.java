@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class SetLocationActivity extends Activity implements OnClickListener {
 
@@ -23,8 +24,14 @@ public class SetLocationActivity extends Activity implements OnClickListener {
     {
         Intent intent = new Intent();
         Bundle bundle=new Bundle();
-        double latitude = 0;
-        double longitude = 0;
+
+        TextView tvlo = (TextView)findViewById(R.id.lon);
+        EditText etlo = (EditText)findViewById(R.id.lon);
+        double longitude = Double.parseDouble(etlo.getText().toString());
+
+        TextView tvla = (TextView)findViewById(R.id.lat);
+        EditText etla = (EditText)findViewById(R.id.lat);
+        double latitude = Double.parseDouble(etla.getText().toString());
 
         bundle.putDouble("com.example.Latitude",latitude);
         bundle.putDouble("com.example.Longitude",longitude);
